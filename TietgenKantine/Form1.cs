@@ -60,7 +60,7 @@ namespace TietgenKantine
                 using (var reader = command.ExecuteReader())
                 {           
                         dt.Load(reader);
-                    // get more data and insert in 
+                    // get more data and insert in other VS design tools
                 }
 
                 connection.Close();
@@ -68,5 +68,8 @@ namespace TietgenKantine
             return dt;
 
         }
+
+      
+
     }
 }
