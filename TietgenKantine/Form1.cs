@@ -34,19 +34,19 @@ namespace TietgenKantine
 
             string queryString = "SELECT * FROM MainCourse;";
             DataTable dt = GetData(connectionString, queryString);
-            var list = new List<MainCourse>();
+            var dishList = new List<MainCourse>();
             foreach (DataRow item in dt.Rows)
             {
                  var main = new MainCourse();
                  main.Id = Convert.ToInt32(item["Id"].ToString());
                  main.Name = item["MainCourseName"].ToString();
-                 list.Add(main);
+                 dishList.Add(main);
             }
            
 
             cmbDishes.ValueMember = "Id";
             cmbDishes.DisplayMember = "Name";
-            cmbDishes.DataSource = list;
+            cmbDishes.DataSource = dishList;
         }
 
         private static DataTable GetData(string connectionString, string queryString)
