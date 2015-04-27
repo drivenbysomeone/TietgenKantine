@@ -61,6 +61,8 @@ namespace TietgenKantine
                 {           
                         dt.Load(reader);
                 }
+
+                connection.Close();
             }
             return dt;
 
