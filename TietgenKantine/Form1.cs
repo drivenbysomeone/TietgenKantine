@@ -10,6 +10,17 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 
+// SQL - notes:
+// using System.Configurasion added
+// using System.Data.sqlClient added
+//
+//The Connection string is added in App.config (see Solution Explorer)
+//
+//In Solution Explorer - right click References -> Add Reference -> and add the System.Configuraion; 
+// 
+// In Sql Server Explorer - everytime a new table has been created - look at its Id properties and set Id Identity Specification to True.
+
+
 namespace TietgenKantine
 {
     public partial class Form1 : Form
