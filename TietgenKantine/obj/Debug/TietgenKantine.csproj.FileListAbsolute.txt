@@ -1,1 +1,9 @@
 U:\AspIT1020\2.år - flex\projekter\TietgenKantine\TietgenKantine\bin\Debug\TietgenKantine.exe.config
+U:\AspIT1020\2.år - flex\projekter\TietgenKantine\TietgenKantine\obj\Debug\TietgenKantine.csprojResolveAssemblyReference.cache
+U:\AspIT1020\2.år - flex\projekter\TietgenKantine\TietgenKantine\obj\Debug\TietgenKantine.Properties.Resources.resources
+U:\AspIT1020\2.år - flex\projekter\TietgenKantine\TietgenKantine\obj\Debug\TietgenKantine.csproj.GenerateResource.Cache
+U:\AspIT1020\2.år - flex\projekter\TietgenKantine\TietgenKantine\bin\Debug\TietgenKantine.exe
+U:\AspIT1020\2.år - flex\projekter\TietgenKantine\TietgenKantine\bin\Debug\TietgenKantine.pdb
+U:\AspIT1020\2.år - flex\projekter\TietgenKantine\TietgenKantine\obj\Debug\TietgenKantine.exe
+U:\AspIT1020\2.år - flex\projekter\TietgenKantine\TietgenKantine\obj\Debug\TietgenKantine.pdb
+U:\AspIT1020\2.år - flex\projekter\TietgenKantine\TietgenKantine\obj\Debug\TietgenKantine.Form1.resources
