@@ -36,8 +36,7 @@ namespace TietgenKantine
 
             string queryString = "SELECT * FROM MainCourse, Tilbehør;";
             
-            DataTable dt = GetData(connectionString, queryString);
-
+            DataTable dt = GetData(connectionString, queryString);           
 
             var dishList = new List<MainCourse>();
             var extrasList = new List<Tilbehør>();
@@ -45,17 +44,26 @@ namespace TietgenKantine
             // missing reference
             foreach (DataRow item in dt.Rows)
             {
+
+             //   if(DataRow item in dt.Rows != DataRow item in dt.Rows)
+                
                 var main = new MainCourse();
                 var theExtras = new Tilbehør();
 
                 main.Id = Convert.ToInt32(item["Id"].ToString());
                 main.Name = item["MainCourseName"].ToString();
-                dishList.Add(main);
 
+                if (main.Name != main.Name)
+                {
+                    dishList.Add(main);
+                }
                 theExtras.Id = Convert.ToInt32(item["Id"].ToString());
                 theExtras.EkstraTilbehør = item["Ekstra Tilbehør"].ToString();
-                extrasList.Add(theExtras);
 
+                //if(theExtras.EkstraTilbehør != theExtras.EkstraTilbehør)
+                //{
+                //extrasList.Add(theExtras);
+                //}
 
             }
 
