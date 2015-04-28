@@ -25,51 +25,82 @@ namespace TietgenKantine
 {
     public partial class Form1 : Form
     {
+
+
         public Form1()
         {
             InitializeComponent();
-            
-         
+
+
             var connectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
 
-            string queryString = "SELECT * FROM MainCourse;";
+            string queryString = "SELECT * FROM MainCourse, Tilbehør;";
+            
             DataTable dt = GetData(connectionString, queryString);
+
+
             var dishList = new List<MainCourse>();
+            var extrasList = new List<Tilbehør>();
+           
+            // missing reference
             foreach (DataRow item in dt.Rows)
             {
-                 var main = new MainCourse();
-                 main.Id = Convert.ToInt32(item["Id"].ToString());
-                 main.Name = item["MainCourseName"].ToString();
-                 dishList.Add(main);
+                var main = new MainCourse();
+                var theExtras = new Tilbehør();
+
+                main.Id = Convert.ToInt32(item["Id"].ToString());
+                main.Name = item["MainCourseName"].ToString();
+                dishList.Add(main);
+
+                theExtras.Id = Convert.ToInt32(item["Id"].ToString());
+                theExtras.EkstraTilbehør = item["Ekstra Tilbehør"].ToString();
+                extrasList.Add(theExtras);
+
+
             }
-           
 
             cmbDishes.ValueMember = "Id";
             cmbDishes.DisplayMember = "Name";
             cmbDishes.DataSource = dishList;
+
+            lstBoxAccessories.ValueMember = "Id";
+            lstBoxAccessories.DisplayMember = "EkstraTilbehør".ToString();
+            lstBoxAccessories.DataSource = extrasList;
+
         }
 
         private static DataTable GetData(string connectionString, string queryString)
         {
-             DataTable dt = new DataTable();
+            DataTable dt = new DataTable();
+           
+         
             using (var connection = new SqlConnection(connectionString))
             {
-               
+
+                //SqlCommand kan kun tage 1 queryString!
                 var command = new SqlCommand(queryString, connection);
                 connection.Open();
                 using (var reader = command.ExecuteReader())
-                {           
-                        dt.Load(reader);
+                {
+                    dt.Load(reader);
+
                     // get more data and insert in other VS design tools
                 }
 
                 connection.Close();
+
+                return dt;
+
+                
+
+              
+
+
+
             }
-            return dt;
+
+
 
         }
-
-      
-
     }
 }
