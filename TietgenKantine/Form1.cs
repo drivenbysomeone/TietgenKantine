@@ -42,6 +42,8 @@ namespace TietgenKantine
         }
 
         private void revealTheDataDrinks()
+
+            // SE https://social.msdn.microsoft.com/forums/windows/en-us/1a04eeb6-51db-44e7-9522-ac5c285f05c8/grouping-radio-buttons - grouping isn't possible!
         {
             var connectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
             string queryString = "SELECT * FROM Drinks;";
@@ -52,11 +54,12 @@ namespace TietgenKantine
             {
                 var theDrink = new Drinks();
                 theDrink.Id = Convert.ToInt32(item["Id"].ToString());
-                theDrink.TheDrinkName = item["TheDrinkName"].ToString();
+                theDrink.TheDrinkName = item["DrinkName"].ToString();
                 drinkList.Add(theDrink);
             }
 
-
+            
+            
             
         }
 
@@ -137,6 +140,26 @@ namespace TietgenKantine
                 
             }
 
+
+
+        }
+
+        private void rdbSoda_CheckedChanged(object sender, EventArgs e)
+        {
+
+            RadioButton radioButton = sender as RadioButton;
+
+            if (radioButton != null)
+            {
+                if(radioButton.Checked)
+                {
+                    MessageBox.Show("d");
+
+
+                }
+
+
+            }
 
 
         }

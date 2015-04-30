@@ -187,6 +187,7 @@
             this.rdbMilk.TabIndex = 6;
             this.rdbMilk.TabStop = true;
             this.rdbMilk.UseVisualStyleBackColor = true;
+            this.rdbMilk.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
             // rdbJuice
             // 
@@ -197,6 +198,7 @@
             this.rdbJuice.TabIndex = 7;
             this.rdbJuice.TabStop = true;
             this.rdbJuice.UseVisualStyleBackColor = true;
+            this.rdbJuice.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
             // rdbSoda
             // 
@@ -207,6 +209,7 @@
             this.rdbSoda.TabIndex = 8;
             this.rdbSoda.TabStop = true;
             this.rdbSoda.UseVisualStyleBackColor = true;
+            this.rdbSoda.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
             // rdbLemonade
             // 
@@ -217,6 +220,7 @@
             this.rdbLemonade.TabIndex = 9;
             this.rdbLemonade.TabStop = true;
             this.rdbLemonade.UseVisualStyleBackColor = true;
+            this.rdbLemonade.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
             // rdbTea
             // 
@@ -227,6 +231,7 @@
             this.rdbTea.TabIndex = 10;
             this.rdbTea.TabStop = true;
             this.rdbTea.UseVisualStyleBackColor = true;
+            this.rdbTea.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
             // rdbCoffee
             // 
@@ -237,6 +242,7 @@
             this.rdbCoffee.TabIndex = 11;
             this.rdbCoffee.TabStop = true;
             this.rdbCoffee.UseVisualStyleBackColor = true;
+            this.rdbCoffee.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
             // chkBoxWater
             // 
