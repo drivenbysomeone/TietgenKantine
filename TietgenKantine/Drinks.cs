@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace TietgenKantine
 {
-    class Test : IDisposable
+    class Drinks
     {
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+        public int Id { get; set; }
+        public string  TheDrinkName{ get; set; }
+
     }
 }

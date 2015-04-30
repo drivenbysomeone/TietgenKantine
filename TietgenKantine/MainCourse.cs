@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TietgenKantine
 {
-    class MainCourse
+     public class MainCourse
     {
         public int Id { get; set; }
         public string Name { get; set; }

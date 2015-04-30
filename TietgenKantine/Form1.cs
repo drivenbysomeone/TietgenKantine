@@ -25,57 +25,93 @@ namespace TietgenKantine
 {
     public partial class Form1 : Form
     {
-
-
+       
+            
+        
+        
         public Form1()
         {
             InitializeComponent();
 
 
+            revealTheDataMainCourse();
+            revealTheDataAccessories();
+            revealTheDataDrinks();
+
+
+        }
+
+        private void revealTheDataDrinks()
+        {
             var connectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
+            string queryString = "SELECT * FROM Drinks;";
+            DataTable dt = GetData(connectionString, queryString);
+            var drinkList = new List<Drinks>();
 
-            string queryString = "SELECT * FROM MainCourse, Tilbehør;";
-            
-            DataTable dt = GetData(connectionString, queryString);           
-
-            var dishList = new List<MainCourse>();
-            var extrasList = new List<Tilbehør>();
-           
-            // missing reference
             foreach (DataRow item in dt.Rows)
             {
-
-             //   if(DataRow item in dt.Rows != DataRow item in dt.Rows)
-                
-                var main = new MainCourse();
-                var theExtras = new Tilbehør();
-
-                main.Id = Convert.ToInt32(item["Id"].ToString());
-                main.Name = item["MainCourseName"].ToString();
-
-                if (main.Name != main.Name)
-                {
-                    dishList.Add(main);
-                }
-                theExtras.Id = Convert.ToInt32(item["Id"].ToString());
-                theExtras.EkstraTilbehør = item["Ekstra Tilbehør"].ToString();
-
-                //if(theExtras.EkstraTilbehør != theExtras.EkstraTilbehør)
-                //{
-                //extrasList.Add(theExtras);
-                //}
-
+                var theDrink = new Drinks();
+                theDrink.Id = Convert.ToInt32(item["Id"].ToString());
+                theDrink.TheDrinkName = item["TheDrinkName"].ToString();
+                drinkList.Add(theDrink);
             }
 
+
+            
+        }
+
+        private void revealTheDataMainCourse()
+        {
+            //solution link:
+            #region 
+            //http://stackoverflow.com/questions/1346132/how-do-i-extract-data-from-a-datatable
+            #endregion 
+
+            var connectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
+            string queryString = "SELECT * FROM MainCourse";
+            DataTable dt = GetData(connectionString, queryString);
+            var dishList = new List<MainCourse>();
+
+            foreach (DataRow item in dt.Rows)
+            {
+                var main = new MainCourse();
+                main.Id = Convert.ToInt32(item["Id"].ToString());
+                main.Name = item["MainCourseName"].ToString();
+                dishList.Add(main);
+
+            }
             cmbDishes.ValueMember = "Id";
             cmbDishes.DisplayMember = "Name";
             cmbDishes.DataSource = dishList;
 
+         //   throw new NotImplementedException();
+        }
+
+        private void revealTheDataAccessories()
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
+            string queryString = "SELECT * FROM Tilbehør;";
+            DataTable dt = GetData(connectionString, queryString);
+            var extrasList = new List<Tilbehør>();
+
+            foreach (DataRow item in dt.Rows)
+            {
+                var theExtras = new Tilbehør();
+                theExtras.Id = Convert.ToInt32(item["Id"].ToString());
+                theExtras.EkstraTilbehør = item["Ekstra Tilbehør"].ToString();
+                extrasList.Add(theExtras);
+
+            }
+
             lstBoxAccessories.ValueMember = "Id";
-            lstBoxAccessories.DisplayMember = "EkstraTilbehør".ToString();
+            lstBoxAccessories.DisplayMember = "EkstraTilbehør";
             lstBoxAccessories.DataSource = extrasList;
 
         }
+
+
+
+
 
         private static DataTable GetData(string connectionString, string queryString)
         {
@@ -98,13 +134,7 @@ namespace TietgenKantine
                 connection.Close();
 
                 return dt;
-
                 
-
-              
-
-
-
             }
 
 
