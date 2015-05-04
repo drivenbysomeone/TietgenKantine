@@ -61,6 +61,7 @@
             this.cmbDishes.Name = "cmbDishes";
             this.cmbDishes.Size = new System.Drawing.Size(121, 21);
             this.cmbDishes.TabIndex = 0;
+            this.cmbDishes.SelectedIndexChanged += new System.EventHandler(this.cmbDishes_SelectedIndexChanged);
             // 
             // lblMainCourse
             // 
@@ -99,12 +100,14 @@
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
             this.orderToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.orderToolStripMenuItem.Text = "Confirm order";
+            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
             // 
             // deleteOrderToolStripMenuItem
             // 
             this.deleteOrderToolStripMenuItem.Name = "deleteOrderToolStripMenuItem";
-            this.deleteOrderToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.deleteOrderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteOrderToolStripMenuItem.Text = "Delete order";
+            this.deleteOrderToolStripMenuItem.Click += new System.EventHandler(this.deleteOrderToolStripMenuItem_Click);
             // 
             // showOrderToolStripMenuItem
             // 
@@ -168,6 +171,7 @@
             this.lstBoxAccessories.Name = "lstBoxAccessories";
             this.lstBoxAccessories.Size = new System.Drawing.Size(121, 82);
             this.lstBoxAccessories.TabIndex = 4;
+            this.lstBoxAccessories.SelectedIndexChanged += new System.EventHandler(this.lstBoxAccessories_SelectedIndexChanged);
             // 
             // lblBeverages
             // 
@@ -183,9 +187,10 @@
             this.rdbMilk.AutoSize = true;
             this.rdbMilk.Location = new System.Drawing.Point(184, 78);
             this.rdbMilk.Name = "rdbMilk";
-            this.rdbMilk.Size = new System.Drawing.Size(14, 13);
+            this.rdbMilk.Size = new System.Drawing.Size(52, 17);
             this.rdbMilk.TabIndex = 6;
             this.rdbMilk.TabStop = true;
+            this.rdbMilk.Text = "Mælk";
             this.rdbMilk.UseVisualStyleBackColor = true;
             this.rdbMilk.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
@@ -194,9 +199,10 @@
             this.rdbJuice.AutoSize = true;
             this.rdbJuice.Location = new System.Drawing.Point(184, 101);
             this.rdbJuice.Name = "rdbJuice";
-            this.rdbJuice.Size = new System.Drawing.Size(14, 13);
+            this.rdbJuice.Size = new System.Drawing.Size(50, 17);
             this.rdbJuice.TabIndex = 7;
             this.rdbJuice.TabStop = true;
+            this.rdbJuice.Text = "Juice";
             this.rdbJuice.UseVisualStyleBackColor = true;
             this.rdbJuice.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
@@ -205,9 +211,10 @@
             this.rdbSoda.AutoSize = true;
             this.rdbSoda.Location = new System.Drawing.Point(184, 124);
             this.rdbSoda.Name = "rdbSoda";
-            this.rdbSoda.Size = new System.Drawing.Size(14, 13);
+            this.rdbSoda.Size = new System.Drawing.Size(74, 17);
             this.rdbSoda.TabIndex = 8;
             this.rdbSoda.TabStop = true;
+            this.rdbSoda.Text = "Sodavand";
             this.rdbSoda.UseVisualStyleBackColor = true;
             this.rdbSoda.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
@@ -216,9 +223,10 @@
             this.rdbLemonade.AutoSize = true;
             this.rdbLemonade.Location = new System.Drawing.Point(184, 147);
             this.rdbLemonade.Name = "rdbLemonade";
-            this.rdbLemonade.Size = new System.Drawing.Size(14, 13);
+            this.rdbLemonade.Size = new System.Drawing.Size(71, 17);
             this.rdbLemonade.TabIndex = 9;
             this.rdbLemonade.TabStop = true;
+            this.rdbLemonade.Text = "Limonade";
             this.rdbLemonade.UseVisualStyleBackColor = true;
             this.rdbLemonade.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
@@ -227,9 +235,10 @@
             this.rdbTea.AutoSize = true;
             this.rdbTea.Location = new System.Drawing.Point(184, 170);
             this.rdbTea.Name = "rdbTea";
-            this.rdbTea.Size = new System.Drawing.Size(14, 13);
+            this.rdbTea.Size = new System.Drawing.Size(44, 17);
             this.rdbTea.TabIndex = 10;
             this.rdbTea.TabStop = true;
+            this.rdbTea.Text = "The";
             this.rdbTea.UseVisualStyleBackColor = true;
             this.rdbTea.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
@@ -238,9 +247,10 @@
             this.rdbCoffee.AutoSize = true;
             this.rdbCoffee.Location = new System.Drawing.Point(184, 193);
             this.rdbCoffee.Name = "rdbCoffee";
-            this.rdbCoffee.Size = new System.Drawing.Size(14, 13);
+            this.rdbCoffee.Size = new System.Drawing.Size(50, 17);
             this.rdbCoffee.TabIndex = 11;
             this.rdbCoffee.TabStop = true;
+            this.rdbCoffee.Text = "Kaffe";
             this.rdbCoffee.UseVisualStyleBackColor = true;
             this.rdbCoffee.CheckedChanged += new System.EventHandler(this.rdbSoda_CheckedChanged);
             // 
@@ -253,6 +263,7 @@
             this.chkBoxWater.TabIndex = 12;
             this.chkBoxWater.Text = "Water";
             this.chkBoxWater.UseVisualStyleBackColor = true;
+            this.chkBoxWater.CheckedChanged += new System.EventHandler(this.chkBoxWater_CheckedChanged);
             // 
             // Form1
             // 

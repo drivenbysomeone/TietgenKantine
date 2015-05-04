@@ -1,1 +1,1 @@
-﻿SELECT * FROM MainCourse, Tilbehør
+﻿

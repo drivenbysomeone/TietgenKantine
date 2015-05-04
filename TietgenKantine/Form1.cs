@@ -25,143 +25,152 @@ namespace TietgenKantine
 {
     public partial class Form1 : Form
     {
-       
-            
-        
+        static string connectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
+        List<MainCourse> dishList = new List<MainCourse>();
+        List<Tilbehør> extrasList = new List<Tilbehør>();
+
+        Drinks drinks = new Drinks();
+        Tilbehør extras = new Tilbehør();
+        MainCourse main = new MainCourse();
+        string theWater = "";
         
         public Form1()
         {
             InitializeComponent();
-
-
             revealTheDataMainCourse();
             revealTheDataAccessories();
-            revealTheDataDrinks();
-
-
         }
-
-        private void revealTheDataDrinks()
-
-            // SE https://social.msdn.microsoft.com/forums/windows/en-us/1a04eeb6-51db-44e7-9522-ac5c285f05c8/grouping-radio-buttons - grouping isn't possible!
-        {
-            var connectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
-            string queryString = "SELECT * FROM Drinks;";
-            DataTable dt = GetData(connectionString, queryString);
-            var drinkList = new List<Drinks>();
-
-            foreach (DataRow item in dt.Rows)
-            {
-                var theDrink = new Drinks();
-                theDrink.Id = Convert.ToInt32(item["Id"].ToString());
-                theDrink.TheDrinkName = item["DrinkName"].ToString();
-                drinkList.Add(theDrink);
-            }
-
-            
-            
-            
-        }
-
         private void revealTheDataMainCourse()
         {
             //solution link:
-            #region 
+            #region
             //http://stackoverflow.com/questions/1346132/how-do-i-extract-data-from-a-datatable
-            #endregion 
-
-            var connectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
+            #endregion
             string queryString = "SELECT * FROM MainCourse";
-            DataTable dt = GetData(connectionString, queryString);
-            var dishList = new List<MainCourse>();
-
+            DataTable dt = GetData(queryString);
             foreach (DataRow item in dt.Rows)
             {
                 var main = new MainCourse();
                 main.Id = Convert.ToInt32(item["Id"].ToString());
                 main.Name = item["MainCourseName"].ToString();
+                main.Price = Convert.ToDecimal(item["Price"].ToString());
                 dishList.Add(main);
-
             }
             cmbDishes.ValueMember = "Id";
             cmbDishes.DisplayMember = "Name";
             cmbDishes.DataSource = dishList;
-
-         //   throw new NotImplementedException();
         }
-
         private void revealTheDataAccessories()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
             string queryString = "SELECT * FROM Tilbehør;";
-            DataTable dt = GetData(connectionString, queryString);
-            var extrasList = new List<Tilbehør>();
-
+            DataTable dt = GetData(queryString);
             foreach (DataRow item in dt.Rows)
             {
                 var theExtras = new Tilbehør();
                 theExtras.Id = Convert.ToInt32(item["Id"].ToString());
                 theExtras.EkstraTilbehør = item["Ekstra Tilbehør"].ToString();
+                theExtras.Price = Convert.ToDecimal(item["Price"].ToString());
                 extrasList.Add(theExtras);
-
             }
-
             lstBoxAccessories.ValueMember = "Id";
             lstBoxAccessories.DisplayMember = "EkstraTilbehør";
             lstBoxAccessories.DataSource = extrasList;
-
         }
 
-
-
-
-
-        private static DataTable GetData(string connectionString, string queryString)
+        private static DataTable GetData(string queryString)
         {
             DataTable dt = new DataTable();
-           
-         
             using (var connection = new SqlConnection(connectionString))
             {
-
-                //SqlCommand kan kun tage 1 queryString!
                 var command = new SqlCommand(queryString, connection);
                 connection.Open();
                 using (var reader = command.ExecuteReader())
                 {
                     dt.Load(reader);
-
-                    // get more data and insert in other VS design tools
                 }
-
                 connection.Close();
 
                 return dt;
-                
             }
-
-
-
         }
 
         private void rdbSoda_CheckedChanged(object sender, EventArgs e)
         {
-
+        
             RadioButton radioButton = sender as RadioButton;
 
             if (radioButton != null)
             {
-                if(radioButton.Checked)
+                
+                if (radioButton.Checked)
                 {
-                    MessageBox.Show("d");
+                    string sql = "SELECT * FROM Drinks WHERE DrinkName = '" + radioButton.Text + "'";
 
-
+                    DataTable dt = GetData(sql);
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        drinks.Id = Convert.ToInt32(item["Id"].ToString());
+                        drinks.TheDrinkName = item["DrinkName"].ToString();
+                        drinks.Price = Convert.ToDecimal(item["Price"].ToString());
+                    }
                 }
+            }
+        }
 
-
+        private void chkBoxWater_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBoxWater != null)
+            {
+                if (chkBoxWater.Checked)
+                {
+                    theWater = "Free water";
+                }
             }
 
+        }
 
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string order = Environment.NewLine + cmbDishes.Text + "   " + main.Price + Environment.NewLine + lstBoxAccessories.Text + "free";
+            order += Environment.NewLine + drinks.TheDrinkName + "   " + drinks.Price + Environment.NewLine + theWater;
+            order += Environment.NewLine + Environment.NewLine + Environment.NewLine + "Total cost:" + Environment.NewLine;
+            order += Environment.NewLine + TotalCost();
+            MessageBox.Show("You have ordered the following:" + order);
+
+        }
+
+        private string TotalCost()
+        {
+            decimal totalValue = main.Price + extras.Price + drinks.Price;
+            return totalValue.ToString();
+        }
+
+        private void lstBoxAccessories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstBoxAccessories.SelectedIndex != -1)
+            {
+                int i = lstBoxAccessories.SelectedIndex;
+                extras = extrasList[i];
+            }
+        }
+
+        private void cmbDishes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbDishes.SelectedIndex != -1)
+            {
+                int i = cmbDishes.SelectedIndex;
+                main = dishList[i];
+            }
+        }
+
+        private void deleteOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cmbDishes.SelectedValue = 0;
+            lstBoxAccessories.SelectedValue = 0;            
+            chkBoxWater.Checked = false;
+ 
+            this.Refresh();
+            
         }
     }
 }

@@ -10,6 +10,6 @@ namespace TietgenKantine
     {
         public int Id { get; set; }
         public string EkstraTilbehør { get; set; }
-
+        public decimal Price { get; set; }
     }
 }
