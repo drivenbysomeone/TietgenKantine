@@ -1,1 +1,1 @@
-﻿
+﻿SELECT Price FROM Drinks WHERE DrinkName = 'Mælk'

@@ -94,6 +94,25 @@ namespace TietgenKantine
             }
         }
 
+        public void InsertData(string sql)
+        {
+            using (var con = new SqlConnection(connectionString))
+            {
+                using (var cmd = new SqlCommand(sql, con))
+                {
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        internal void InsertIntoDB()
+        {
+            string sql = "INSERT INTO Orders (MainDish, Beverages, Extras) VALUES (" + main.Id + ", " + drinks.Id + ", " + extras.Id + ")";
+            InsertData(sql);
+        }
+
+
         private void rdbSoda_CheckedChanged(object sender, EventArgs e)
         {
         
@@ -136,6 +155,8 @@ namespace TietgenKantine
             order += Environment.NewLine + Environment.NewLine + Environment.NewLine + "Total cost:" + Environment.NewLine;
             order += Environment.NewLine + TotalCost();
             MessageBox.Show("You have ordered the following:" + order);
+            InsertIntoDB();
+            
 
         }
 
@@ -168,7 +189,8 @@ namespace TietgenKantine
             cmbDishes.SelectedValue = 0;
             lstBoxAccessories.SelectedValue = 0;            
             chkBoxWater.Checked = false;
- 
+            rdbMilk.Checked = false;
+            
             this.Refresh();
             
         }

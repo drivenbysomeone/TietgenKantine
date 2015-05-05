@@ -68,9 +68,9 @@
             this.lblMainCourse.AutoSize = true;
             this.lblMainCourse.Location = new System.Drawing.Point(23, 54);
             this.lblMainCourse.Name = "lblMainCourse";
-            this.lblMainCourse.Size = new System.Drawing.Size(101, 13);
+            this.lblMainCourse.Size = new System.Drawing.Size(95, 13);
             this.lblMainCourse.TabIndex = 1;
-            this.lblMainCourse.Text = "Pick a Main course:";
+            this.lblMainCourse.Text = "Vælg en hovedret:";
             // 
             // menuStrip1
             // 
@@ -92,33 +92,33 @@
             this.showOrderToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(31, 20);
+            this.fileToolStripMenuItem.Text = "Fil";
             // 
             // orderToolStripMenuItem
             // 
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.orderToolStripMenuItem.Text = "Confirm order";
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orderToolStripMenuItem.Text = "Bestil";
             this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
             // 
             // deleteOrderToolStripMenuItem
             // 
             this.deleteOrderToolStripMenuItem.Name = "deleteOrderToolStripMenuItem";
             this.deleteOrderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.deleteOrderToolStripMenuItem.Text = "Delete order";
+            this.deleteOrderToolStripMenuItem.Text = "Slet bestilling";
             this.deleteOrderToolStripMenuItem.Click += new System.EventHandler(this.deleteOrderToolStripMenuItem_Click);
             // 
             // showOrderToolStripMenuItem
             // 
             this.showOrderToolStripMenuItem.Name = "showOrderToolStripMenuItem";
-            this.showOrderToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.showOrderToolStripMenuItem.Text = "Show order";
+            this.showOrderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showOrderToolStripMenuItem.Text = "Vis bestilling";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // editToolStripMenuItem
@@ -128,41 +128,41 @@
             this.beveragesToolStripMenuItem,
             this.accessoriesToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.editToolStripMenuItem.Text = "Rediger";
             // 
             // mainDishToolStripMenuItem
             // 
             this.mainDishToolStripMenuItem.Name = "mainDishToolStripMenuItem";
-            this.mainDishToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.mainDishToolStripMenuItem.Text = "Main dish";
+            this.mainDishToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainDishToolStripMenuItem.Text = "Hovedret";
             // 
             // beveragesToolStripMenuItem
             // 
             this.beveragesToolStripMenuItem.Name = "beveragesToolStripMenuItem";
-            this.beveragesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.beveragesToolStripMenuItem.Text = "Beverages";
+            this.beveragesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.beveragesToolStripMenuItem.Text = "Drikkelse";
             // 
             // accessoriesToolStripMenuItem
             // 
             this.accessoriesToolStripMenuItem.Name = "accessoriesToolStripMenuItem";
-            this.accessoriesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.accessoriesToolStripMenuItem.Text = "Accessories";
+            this.accessoriesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.accessoriesToolStripMenuItem.Text = "Tilbehør";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.helpToolStripMenuItem.Text = "Hjælp";
             // 
             // lblAccessories
             // 
             this.lblAccessories.AutoSize = true;
             this.lblAccessories.Location = new System.Drawing.Point(23, 135);
             this.lblAccessories.Name = "lblAccessories";
-            this.lblAccessories.Size = new System.Drawing.Size(67, 13);
+            this.lblAccessories.Size = new System.Drawing.Size(48, 13);
             this.lblAccessories.TabIndex = 3;
-            this.lblAccessories.Text = "Accessories:";
+            this.lblAccessories.Text = "Tilbehør:";
             // 
             // lstBoxAccessories
             // 
@@ -178,9 +178,9 @@
             this.lblBeverages.AutoSize = true;
             this.lblBeverages.Location = new System.Drawing.Point(181, 54);
             this.lblBeverages.Name = "lblBeverages";
-            this.lblBeverages.Size = new System.Drawing.Size(61, 13);
+            this.lblBeverages.Size = new System.Drawing.Size(54, 13);
             this.lblBeverages.TabIndex = 5;
-            this.lblBeverages.Text = "Beverages:";
+            this.lblBeverages.Text = "Drikkelse:";
             // 
             // rdbMilk
             // 
@@ -257,11 +257,11 @@
             // chkBoxWater
             // 
             this.chkBoxWater.AutoSize = true;
-            this.chkBoxWater.Location = new System.Drawing.Point(26, 250);
+            this.chkBoxWater.Location = new System.Drawing.Point(183, 230);
             this.chkBoxWater.Name = "chkBoxWater";
-            this.chkBoxWater.Size = new System.Drawing.Size(55, 17);
+            this.chkBoxWater.Size = new System.Drawing.Size(51, 17);
             this.chkBoxWater.TabIndex = 12;
-            this.chkBoxWater.Text = "Water";
+            this.chkBoxWater.Text = "Vand";
             this.chkBoxWater.UseVisualStyleBackColor = true;
             this.chkBoxWater.CheckedChanged += new System.EventHandler(this.chkBoxWater_CheckedChanged);
             // 
